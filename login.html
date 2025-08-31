@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitArena - Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/FitArena Logo.png" alt="FitArena Logo" class="logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="challenges.html">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="achievements.html">Achievements</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Login Section ===== -->
+  <section class="login-section d-flex align-items-center justify-content-center">
+    <div class="login-card p-4" data-aos="fade-up">
+      <h2 class="mb-4">Login to Your Account</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email Address" required class="form-control mb-3">
+        <input type="password" id="password" placeholder="Password" required class="form-control mb-3">
+
+        <div class="checkbox-row d-flex justify-content-between mb-3">
+          <label>
+            <input type="checkbox" id="rememberMe"> Remember me
+          </label>
+        </div>
+
+        <button type="submit" class="hero-btn w-100 mb-3">Login</button>
+
+        <div class="divider text-center my-3">Or login with</div>
+
+        <div class="oauth-buttons d-flex justify-content-around mb-3">
+          <button type="button" class="btn btn-light">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/1200px-Google_Favicon_2025.svg.png" alt="Google" width="20"> Google
+          </button>
+          <button type="button" class="btn btn-light">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png" alt="GitHub" width="20"> GitHub
+          </button>
+        </div>
+
+        <p class="mt-3">Don't have an account? <a href="register.html">Register here</a></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 50){
+        navbar.classList.add('scrolled');
+        navbar.style.backdropFilter = 'blur(10px)';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.backdropFilter = 'none';
+      }
+    });
+
+    // ===== Frontend Login with localStorage =====
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+
+      // Save user in localStorage
+      const user = {
+        email: email,
+        password: password,
+        score: 0,
+        level: 1,
+        streak: 0
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+
+      if(rememberMe){
+        localStorage.setItem('rememberedEmail', email);
+      } else {
+        localStorage.removeItem('rememberedEmail');
+      }
+
+      alert(`Logged in as ${email}`);
+      window.location.href = 'index.html';
+    });
+
+    // Auto-fill remembered email
+    window.addEventListener('DOMContentLoaded', () => {
+      const remembered = localStorage.getItem('rememberedEmail');
+      if(remembered){
+        document.getElementById('email').value = remembered;
+        document.getElementById('rememberMe').checked = true;
+      }
+    });
+  </script>
+</body>
+</html>

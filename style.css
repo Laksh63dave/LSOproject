@@ -1,0 +1,389 @@
+/* ==============================
+   Import Sleek Font
+============================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fff;
+  color: #111;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* ==============================
+   Navbar
+============================== */
+.navbar {
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.85) !important;
+}
+
+.nav-link {
+  color: #111 !important;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #6366f1 !important;
+  transform: translateY(-2px);
+}
+
+.logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* ==============================
+   Hero Section
+============================== */
+.hero-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,245,0.95));
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.hero-btn {
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: #fff;
+  border-radius: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+}
+
+/* ==============================
+   Glass Cards
+============================== */
+.glass-card, .card-glass {
+  background: rgba(255,255,255,0.9);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover, .card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(99,102,241,0.2);
+}
+
+.hover-scale:hover {
+  transform: scale(1.04);
+  box-shadow: 0 25px 50px rgba(99,102,241,0.2);
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: #636363;
+}
+
+/* ==============================
+   Buttons
+============================== */
+button.btn-light {
+  background: #111;
+  color: #fff;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button.btn-light:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(99,102,241,0.3);
+}
+
+/* ==============================
+   Section Titles
+============================== */
+.section-title {
+  font-size: 2rem;
+  color: #111;
+  font-weight: 700;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg,#6366f1,#818cf8);
+  border-radius: 2px;
+}
+
+/* ==============================
+   Progress Bars
+============================== */
+.progress {
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e0e0e0;
+}
+
+.progress-bar {
+  transition: width 0.5s ease, background 0.5s ease;
+}
+
+/* ==============================
+   Achievements & Badges
+============================== */
+.badge {
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: #fff;
+}
+
+/* ==============================
+   Leaderboard
+============================== */
+#leaderboard-list .list-group-item {
+  background: rgba(255,255,255,0.95);
+  color: #111 !important;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#leaderboard-list .list-group-item:hover {
+  background: rgba(99,102,241,0.1);
+  transform: translateX(5px);
+  box-shadow: 0 10px 20px rgba(99,102,241,0.1);
+}
+
+/* ==============================
+   Developer Section
+============================== */
+.developer-section {
+  background: #f7f7f7;
+  padding: 6rem 0;
+}
+
+.developer-section h2 {
+  color: #111;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.cards-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media(min-width: 640px) { .cards-container { grid-template-columns: repeat(2, 1fr); } }
+@media(min-width: 1024px) { .cards-container { grid-template-columns: repeat(3, 1fr); } }
+
+/* ==============================
+   About Us Page
+============================== */
+#about .glass-card {
+  padding: 3rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* ==============================
+   Scrollbar
+============================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99,102,241,0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ==============================
+   Login / Register Section
+============================== */
+.login-section, .register-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  padding: 2rem;
+}
+
+.login-card, .register-card {
+  max-width: 400px;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.login-card:hover, .register-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.login-card h2, .register-card h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+.login-card form, .register-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card input, .register-card input {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.login-card input:focus, .register-card input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 8px rgba(99,102,241,0.2);
+}
+
+.checkbox-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-card button, .register-card button {
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.login-card button:hover, .register-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(99,102,241,0.3);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 10px;
+}
+
+/* ==============================
+   OAuth Buttons (Google/GitHub)
+============================== */
+.oauth-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.oauth-buttons button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  flex: 1;
+  color: #111;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.oauth-buttons button:hover {
+  background-color: #f2f2f2;
+  border-color: #ccc;
+}
+
+.oauth-buttons button img {
+  height: 20px; 
+  width: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 576px) {
+  .login-card, .register-card {
+    padding: 2rem;
+  }
+}
